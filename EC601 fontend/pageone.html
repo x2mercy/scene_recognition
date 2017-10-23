@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/main.css">
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<meta charset=utf-8 />
+<title>Scene Recognition System</title>
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="pageone.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+  <header class="top-header">
+    <nav class="top-nav">
+      <a href="#">Home</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+  <div class="container">
+  <header>
+      <p>
+        <span>Scene</span>
+        <br />Recognition
+      </p>
+    </header>
+  <div class="searchbox">
+  <i class="fa fa-map-marker"></i>
+  <input type='file' onchange="readURL(this);" />
+  <button type='button' onclick="toNextPage()">upload</button>
+  </div>
+  <p id="imageshow"><img id="blah" src="#" alt="" /></p>
+  </div>
+  
+  <footer>
+    <p class="title">What We Do?</p>
+    <p><strong>"Help you recognize the building around"</strong></p>
+    <ul>
+      <li>
+        <p><i class="fa fa-map-o fa-2x"></i></p>
+        <p>Boston University.MA</p>
+      </li>
+      <li>
+        <p><i class="fa fa-envelope-o fa-2x"></i></p>
+        <p>lyz95222@bu.edu<br>ruirui@bu.edu<br>wmx@bu.edu<br>tracycxw@bu.edu
+        </p>
+      </li>
+      <li>
+        <p><i class="fa fa-phone fa-2x"></i></p>
+        <p>+857 869 1466</p>
+      </li>
+    </ul>
+  </footer> 
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+function toNextPage(){
+  var ImageSrc=document.getElementById('blah').src;
+  window.location.href='secondpage.html'+'#'+ImageSrc;
+}
+</script>
+</body>
+</html>
