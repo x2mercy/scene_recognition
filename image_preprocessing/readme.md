@@ -1,5 +1,5 @@
 #       Defog:
-        Fog or rain covered the feature of the original building
+        Fog or rain covered the feature of the original building
         Algorithm：Dark path defog (Dr.Kaiming He)
         Tool: openCV(Python) & Matlab
 #       Verify:Extract feature
