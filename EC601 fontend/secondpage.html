@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
   <meta charset="UTF-8">
   <meta name="description" content="Item Recommendation">
   <meta name="author" content="Your Name">
   <title>Scene Recognition</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="styles/main.css">
-  <link href="pagetwo.css" rel="stylesheet" type="text/css" media="all">
+  <link href="static/css/pagetwo.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
   <header class="top-header">
@@ -44,7 +44,7 @@
   <li class="firstResult">
     <img id="Img1" src="https://i.pinimg.com/originals/b6/9d/93/b69d93ed4d468789bec1ddc6728226d4.jpg" width="107" height="98">
     <div>
-      <a class="item-name" href="pagethree.html"><strong>Photonics Center.</strong>
+      <a class="item-name" href="http://127.0.0.1:5000/third"><strong>Photonics Center.</strong>
         <p class="item-category">Engineering</p>
         <div class="stars">
           <i class="fa fa-star"></i>
@@ -102,14 +102,309 @@
         <p>+857 869 1466</p>
       </li>
     </ul>
-  </footer> 
+  </footer>   
+</body>
 <script>
-var text = window.location.hash.substring(1)
+var text = window.location.hash.substring(1);
 document.getElementById('myImg').src=text;
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery.min.js"></script>
+
+<script>
+    function $(tag, options) {
+		if (!options) {
+			return document.getElementById(tag);
+		}
+
+		var element = document.createElement(tag);
+
+		for ( var option in options) {
+			if (options.hasOwnProperty(option)) {
+				element[option] = options[option];
+			}
+		}
+
+		return element;
+	}
+	function showLoadingMessage(msg) {
+		var itemList = $('item-list');
+		itemList.innerHTML = '<p class="notice"><i class="fa fa-spinner fa-spin"></i> '+ msg + '</p>';
+	}
+
+	function showWarningMessage(msg) {
+	    var itemList = $('item-list');
+	    itemList.innerHTML = '<p class="notice"><i class="fa fa-exclamation-triangle"></i> ' + msg + '</p>';
+	}
+
+	function showErrorMessage(msg) {
+		var itemList = $('item-list');
+		itemList.innerHTML = '<p class="notice"><i class="fa fa-exclamation-circle"></i> ' + msg + '</p>';
+	}
+	function loadMatchingResult() {
+	     
+	     
+		console.log('LoadMatchingResult');
+		var url = 'http://127.0.0.1:5000/search';
+		var img_src=$('myImg');
+		var params = 'img_src=' + img_src.src;
+		var req = JSON.stringify({});
+		showLoadingMessage("Load Matching Results")
+		
+		
+		ajax('GET', url + '?' + params, req,
+		function(res) {
+			     var items = JSON.parse(res); 
+				listItems(items);
+				initMap();
+		},
+		
+		function() {
+			showErrorMessage('Cannot load matching results.');
+		});
+         
+	}
+	
+	loadMatchingResult();
+	function ajax(method, url, data, callback, errorHandler) {
+		  var xhr = new XMLHttpRequest();
+
+		  xhr.open(method, url, true);
+
+		  xhr.onload = function () {
+		    switch (xhr.status) {
+		      case 200:  
+		        callback(xhr.responseText);
+		        break;
+		      case 403:
+		        onSessionInvalid();
+		        break;
+		      case 401:
+		        errorHandler();
+		        break;
+		    }
+		  };
+
+		  xhr.onerror = function () {
+		    console.error("The request couldn't be completed.");
+		    errorHandler();
+		  };
+
+		  if (data === null) {
+		    xhr.send();
+		  } else {
+		    xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+		    xhr.send(data);
+		  }
+		}
+	function listItems(items) {
+	    var itemList = $('item-list');
+	    itemList.innerHTML = '';
+         addFirstItem(itemList,items);
+         addSecondItem(itemList, items);
+         addThirdItem(itemList, items);
+	}
+	function addFirstItem(itemList, item) {
+		var item_name=item.name;
+		var item_categories=item.categories;
+		var item_address=item.address;
+		var item_image_url=item.image_url;
+		var lat=item.lat;
+		var lng=item.lng;
+		var li = $('li', {
+			className : 'secondResult'
+		});
+		li.appendChild($('img', {
+				src : item_image_url
+		}));
+		var section=$('div', {});
+		var title=$('a', {
+		    className: 'item-name'
+		});
+		title.innerHTML=item_name;
+		section.appendChild(title);
+		
+		var category=$('p',{
+		className:'item-category'
+		});
+		category.innerHTML="Category: "+item_categories;
+		section.appendChild(category);
+		
+		var stars = $('div', {
+			className : 'stars'
+		});
+		
+		for (var i = 0; i < 3; i++) {
+			var star = $('i', {
+				className : 'fa fa-star'
+			});
+			stars.appendChild(star);
+		}
+		section.appendChild(stars);
+		
+		var address=$('a', {
+            className: 'item-address'
+		})
+		address.innerHTML=item_address;
+		section.appendChild(address);
+		
+		li.appendChild(section);
+		
+		var mapsection=$('div', {
+		   id: 'map'
+		});
+		var templat=$('div', {
+		   id: 'latitude'
+		});
+		var templng=$('div', {
+		   id: 'longitude'
+		});
+		templat.innerHTML=lat;
+		templng.innerHTML=lng;
+		li.appendChild(mapsection);
+		li.appendChild(templat);
+		li.appendChild(templng);
+		
+		itemList.appendChild(li);
+	}
+	
+	function addSecondItem(itemList, item) {
+		var item_name=item.name;
+		var item_categories=item.categories;
+		var item_address=item.address;
+		var item_image_url=item.image_url;
+		var lat=item.lat;
+		var lng=item.lng;
+		var li = $('li', {
+			className : 'secondResult'
+		});
+		li.appendChild($('img', {
+				src : item_image_url
+		}));
+		var section=$('div', {});
+		var title=$('a', {
+		    className: 'item-name2'
+		});
+		title.innerHTML=item_name;
+		section.appendChild(title);
+		
+		var category=$('p',{
+		className:'item-category2'
+		});
+		category.innerHTML="Category: "+item_categories;
+		section.appendChild(category);
+		
+		var stars = $('div', {
+			className : 'stars2'
+		});
+		
+		for (var i = 0; i < 2; i++) {
+			var star = $('i', {
+				className : 'fa fa-star'
+			});
+			stars.appendChild(star);
+		}
+		section.appendChild(stars);
+		
+		var address=$('a', {
+            className: 'item-address2'
+		})
+		address.innerHTML=item_address;
+		section.appendChild(address);
+		
+		li.appendChild(section);
+		
+		var mapsection2=$('div', {
+		   id: 'map2'
+		});
+		var templat=$('div', {
+		   id: 'latitude2'
+		});
+		var templng=$('div', {
+		   id: 'longitude2'
+		});
+		templat.innerHTML=lat;
+		templng.innerHTML=lng;
+		li.appendChild(mapsection2);
+		li.appendChild(templat);
+		li.appendChild(templng);
+		
+		itemList.appendChild(li);
+	}
+	
+	function addThirdItem(itemList, item) {
+		var item_name=item.name;
+		var item_categories=item.categories;
+		var item_address=item.address;
+		var item_image_url=item.image_url;
+		var lat=item.lat;
+		var lng=item.lng;
+		var li = $('li', {
+			className : 'thirdResult'
+		});
+		li.appendChild($('img', {
+				src : item_image_url
+		}));
+		var section=$('div', {});
+		var title=$('a', {
+		    className: 'item-name3'
+		});
+		title.innerHTML=item_name;
+		section.appendChild(title);
+		
+		var category=$('p',{
+		className:'item-category3'
+		});
+		category.innerHTML="Category: "+item_categories;
+		section.appendChild(category);
+		
+		var stars = $('div', {
+			className : 'stars3'
+		});
+		
+		for (var i = 0; i < 1; i++) {
+			var star = $('i', {
+				className : 'fa fa-star'
+			});
+			stars.appendChild(star);
+		}
+		section.appendChild(stars);
+		
+		var address=$('a', {
+            className: 'item-address3'
+		})
+		address.innerHTML=item_address;
+		section.appendChild(address);
+		
+		li.appendChild(section);
+		
+		var mapsection3=$('div', {
+		   id: 'map3'
+		});
+		var templat=$('div', {
+		   id: 'latitude3'
+		});
+		var templng=$('div', {
+		   id: 'longitude3'
+		});
+		templat.innerHTML=lat;
+		templng.innerHTML=lng;
+		li.appendChild(mapsection3);
+		li.appendChild(templat);
+		li.appendChild(templng);
+		
+		itemList.appendChild(li);
+	}		
 </script>
 <script>
       function initMap() {
-        var uluru = {lat: 42.3494683, lng: -71.1064357};
+        var lat1=parseFloat(document.getElementById('latitude').innerHTML);
+        var lng1=parseFloat(document.getElementById('longitude').innerHTML);
+        var lat2=parseFloat(document.getElementById('latitude2').innerHTML);
+        var lng2=parseFloat(document.getElementById('longitude2').innerHTML);
+        var lat3=parseFloat(document.getElementById('latitude3').innerHTML);
+        var lng3=parseFloat(document.getElementById('longitude3').innerHTML);
+        var uluru = {lat: lat1, lng: lng1};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
           center: uluru
@@ -118,7 +413,7 @@ document.getElementById('myImg').src=text;
           position: uluru,
           map: map
         });
-        var uluru2 = {lat: 42.3484669, lng: -71.104046};
+        var uluru2 = {lat: lat2, lng: lng2};
         var map2 = new google.maps.Map(document.getElementById('map2'), {
           zoom: 15,
           center: uluru2
@@ -127,7 +422,7 @@ document.getElementById('myImg').src=text;
           position: uluru2,
           map: map2
         });
-        var uluru3 = {lat: 42.3509182, lng: -71.1111392};
+        var uluru3 = {lat: lat3, lng: lng3};
         var map3 = new google.maps.Map(document.getElementById('map3'), {
           zoom: 15,
           center: uluru3
@@ -137,11 +432,11 @@ document.getElementById('myImg').src=text;
           map: map3
         });
       }
-</script>
-  
+
+</script> 
 <script async defer
  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRKvc9KKWz_eMTFILgcRbNO9DAUoeurLg&callback=initMap">
 </script>
-  
-</body>
+
+
 </html>

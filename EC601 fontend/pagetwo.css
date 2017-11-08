@@ -147,6 +147,24 @@ ul {
   padding-right: 20px;
   text-align:    center;
 }
+#latitude{
+display:none;
+}
+#longitude{
+display:none;
+}
+#latitude2{
+display:none !important;
+}
+#longitude2{
+display:none !important;
+}
+#latitude3{
+display:none !important;
+}
+#longitude3{
+display:none !important;
+}
 #map{
   width:200px;
   height:180px;
@@ -156,11 +174,15 @@ ul {
   width:200px;
   height:180px;
   text-align: right;
+  z-index:999;
+  float: right;
 }
 #map3{
   width:200px;
   height:180px;
   text-align: right;
+  z-index:999;
+  float: right;
 }
 .secondResult {
   align-items:   center;
