@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Scene Recognition System</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="static/css/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/creative.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Scene Recognition</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Start</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Category</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Scene Recognition</strong>
+            </h1>
+            <hr>
+          </div>
+          <div class="col-lg-8 mx-auto">
+            <p class="text-faded mb-5">Start Scene Recognition to find out concrete information of your building photo!</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">Upload here!</h2>
+            <hr class="light my-4">
+            <p class="text-faded mb-4">choose a photo in your computer and click the upload button, then see the miracle!</p>
+              <div class="searchbox">
+                <div class = 'search'>
+                  <i class="fa fa-map-marker"></i>
+                  <input type='file' accept="image/jpg, image/png, image/JPEG, image/JPG"  size="1MB" onchange="readURL(this);" />
+                  <button type='button' onclick="toNextPage()">upload</button>
+                </div>
+                <div class = 'imgshow'>
+                  <p id="imageshow"><img id="blah" src="#" alt="" /></p>
+                </div>
+              </div>
+            <!--<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>-->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">About Us</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Target people</h3>
+              <p class="text-muted mb-0">People who has no idea about the information of the building in the picture.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">What We Do</h3>
+              <p class="text-muted mb-0">Use machine learning to tell the target people the name of the building and other information like position.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Why We Special</h3>
+              <p class="text-muted mb-0">Google map cannot use image to search for text information.Google image can only give a broad classification. No one but us can achieve the goal of using image to get concrete information.</p>                     
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Who We Are</h3>
+              <p class="text-muted mb-0">2017Fall Master students in Boston University.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-0" id="portfolio">
+      <div class="container-fluid p-0">
+        <div class="row no-gutters popup-gallery">
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/pho.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/pho.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Photonics Center
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/audi.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/audi.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Morse Auditorium
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/cfa.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/cfa.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    College of Fine Arts
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/cgs.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/cgs.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    College of General Study
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/chapel.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/chapel.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Chapel
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/gym.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/gym.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Gym
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/Questrom.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/Questrom.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Questrom school of business
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/Thai.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/Thai.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Tsai College of fine arts
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/Communication.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/Communication.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    College of Communication
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/Nutrition.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/Nutrition.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Boston Univeristy Nutrition
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/Classical.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/Classical.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Department of Classical Studies
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div> 
+        <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/AGB.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/AGB.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Arthur G.B. Metcalfe Center for Science & Engineering
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div> 
+        <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="static/img/portfolio/fullsize/AA.jpg">
+              <img class="img-fluid" src="static/img/portfolio/thumbnails/AA.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Agganis Arena
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div> 
+        </div>
+      </div>
+    </section>
+<!--
+    <section class="bg-dark text-white">
+      <div class="container text-center">
+        <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
+        <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
+      </div>
+    </section>
+-->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">Let's Get In Touch!</h2>
+            <hr class="my-4">
+            <p class="mb-5">
+              <a href="https://github.com/x2mercy/scene_recognition"> Github: https://github.com/x2mercy/scene_recognition</a>
+              <a href="https://trello.com/buildingscenerecognition">Trello: https://trello.com/buildingscenerecognition</a>
+            </p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fa fa-map-o fa-2x"></i>
+            <p>Boston University, MA</p>
+          </div>
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fa fa-envelope-o fa-2x"></i>
+            <p>lyz95222@bu.edu<br>ruirui@bu.edu<br>wmx@bu.edu<br>tracycxw@bu.edu</p>
+          </div>
+          <div class="col-lg-4 mr-auto text-center">
+            <i class="fa fa-phone fa-2x"></i>
+            <p>
+              <a>+857 869 1466</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="static/script/jquery.min.js"></script>
+    <script type="text/javascript" src="static/script/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script type="text/javascript" src="static/script/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="static/script/scrollreveal.min.js"></script>
+    <script type="text/javascript" src="static/script/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script type="text/javascript" src="static/script/creative.min.js"></script>
+    <script>
+    function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(300)
+                        .height(300);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    function toNextPage(){
+      var ImageSrc=document.getElementById('blah').src;
+      var url="./second"+"#"+ImageSrc;
+      window.open(url);
+    }
+    </script>
+  </body>
+
+</html>
