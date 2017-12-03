@@ -15,4 +15,5 @@
       three most matchable buildings' name and location.
     4.click the names of building, you will come to the third pages which can tell you recent news and abstract of 
       the building.
-    
+## Play with our project directly:
+    For now, we have deployed our project on the AWS. Visit it from : http://18.216.95.255:5000/
