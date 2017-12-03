@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+  margin:     0;
+  padding:    0;
+}
+body {
+  background:  #F5FFA;
+  color:       #00000;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size:   0.9em;
+}
+.top-header {
+  align-items: center;
+  background:  #4169E1;
+  box-shadow:  0px 2px 10px #333333;
+  display:     flex;
+  height:      60px;
+  position:    fixed;
+  top:         0;
+  width:       100%;
+  z-index:     1;
+}
+.top-nav {
+  flex: 1;
+}
+
+.top-nav a {
+  color:           #F9F9F9;
+  font-weight:     400;
+  margin-left:     20px;
+  text-decoration: none;
+}
+.second-header{
+  align-items:     center;
+  display:         flex;
+  height:          250px;
+}
+.second-header  {
+  border-left:  1px solid #FFFFFF;
+  font-weight:  200;
+  font-size:    3em;
+  line-height:  1em;
+  margin-left:  200px;
+  padding-left: 6px;
+}
+.second-header {
+  align-items:     center;
+  background:      #F0F8FF
+  background-size: 100%;
+  display:         flex;
+  height:          250px;
+}
+.headerimage{
+  align-items:     center;
+  background:      url('https://www.collegemagazine.com/wp-content/uploads/2016/07/Boston_University_scene_-_DSC03050.jpg') no-repeat 50% 50%;
+  background-size: 100%;
+  display:         flex;
+  height:          300px;
+}
+aside{
+  float:right;
+  width: 380px;
+  margin-left:50px;
+  margin-top: 5px;
+  border-left:2px solid #FFFFFF;
+  background:#FFFAFA; 
+}
+.events h3{
+  font-size:30px;
+  margin-top:5px;
+  margin-bottom:5px;
+  font-weight:bold;
+}
+.events a{
+  font-size:20px;
+  font-weight:bold;
+}
+#first-c-time{
+  font-size:20px;
+  margin-top:3px;
+  margin-bottom:3px;
+  font-weight:900;
+}
+#second-c-time{
+  font-size:20px;
+  margin-top:3px;
+  margin-bottom:3px;
+  font-weight:900;
+}
+#first-n{
+  font-size:20px;
+  margin-top:3px;
+  margin-bottom:3px;
+  font-weight:900;
+}
+#second-n{
+  font-size:20px;
+  margin-top:3px;
+  margin-bottom:3px;
+  font-weight:900;
+}
+#first-n-intro{
+  font-size:15px;
+  font-weight:900;
+}
+#second-n-intro{
+  font-size:15px;
+  font-weight:900;
+}
+.mission{
+  float:left;
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:5px;
+}
+.m{
+ float:left;
+ margin-right:200px;
+ margin-top:1opx;
+ float:left;
+ display:flex;
+ margin-left:50px;
+}
+.m h2{
+  font-size:25px;
+  margin-top:5px;
+  margin-bottom:5px;
+  font-weight:900;
+}
+.first_title{
+margin-left:30px;
+}
+.next_title{
+margin-top:80px;
+margin-left:30px;
+}
+#first_par{
+  font-size:20px;
+  margin-top:3px;
+  margin-bottom:3px;
+  margin-right:50px;
+  margin-left:10px;
+  font-weight:400;
+  text-align:left;
+}
+#mission_list{
+  font-size:18px;
+  margin-top:10px;
+  margin-bottom:3px;
+  margin-right:50px;
+  font-weight:600;
+  margin-left:20px;
+  text-decoration:underline;
+  text-align:left;
+}
+#last_par{
+  font-size:20px;
+  margin-top:3px;
+  margin-bottom:3px;
+  margin-right:50px;
+  margin-left:20px;
+  font-weight:400;
+  text-align:left;
+}
+footer {
+  margin-top:200px;
+  background: #434343;
+  font-size:  0.8em;
+  height:     200px;
+  position:   relative;
+}
+
+footer p {
+  text-align: center;
+  color:#FFFFFF;
+}
+
+footer p.title {
+  font-size: 1.2em;
+  padding:   15px;
+}
+
+footer ul {
+  align-items: center;
+  display:     flex;
+  padding:     20px;
+  list-style:  none;
+}
+
+footer ul li {
+  flex: 1;
+}
+
