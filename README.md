@@ -16,4 +16,9 @@
     4.click the names of building, you will come to the third pages which can tell you recent news and abstract of 
       the building.
 ## Play with our project directly:
-    For now, we have deployed our project on the AWS. Visit it from : http://18.216.95.255:5000/
+    For now, we have deployed our project on the AWS. Visit it from: http://13.58.54.44:5000/ (http://18.217.131.112:5000)
+    Click “GET STARTED” and select an image of BU building of your own, Click “Upload”
+    Matching  results have been returned!
+    Click the name if you want to know more information of this building
+    Enjoy it and share our web with your friends!
+
